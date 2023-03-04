@@ -3,6 +3,7 @@ interface SpecificationsProps {
 }
 
 type AssetsProps = {
+    id: number;
     name: string;
     image: string;
     status: string;

@@ -5,6 +5,7 @@ import { Badge } from "flowbite-react";
 import Link from "next/link";
 
 interface CardMachinesProps {
+    id: number;
     image: string;
     name: string;
     status: string;
@@ -18,7 +19,7 @@ type StatusProps = {
 
 
 
-const CardMachines: React.FC<CardMachinesProps> = ({ image, name, sensors, status, model }) => {
+const CardMachines: React.FC<CardMachinesProps> = ({ id, image, name, sensors, status, model }) => {
 
     function getStatusToModelBadge(status: string): string {
         const keys: StatusProps = {
@@ -63,8 +64,7 @@ const CardMachines: React.FC<CardMachinesProps> = ({ image, name, sensors, statu
                         {translatedStatusMachine(status)}
                     </Badge>
                 </section>
-
-                <Link href={`/dashboard/detailsmachine/1`} className="inline-flex self-end items-center px-2 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                <Link href={`/dashboard/detailsmachine/${id}`} className="flex flex-row  justify-between items-center px-2 py-2 text-sm font-medium text-center text-gray-900 bg-white border border-gray-300 rounded-lg hover:bg-gray-100">
                     Detalhes
                 </Link>
             </div>

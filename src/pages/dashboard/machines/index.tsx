@@ -48,7 +48,7 @@ const Machines: NextPage<MachinesPageProps> = ({ assets }) => {
                 <main>
                     <div className='px-4 mx-auto max-w-7xl item-center justify-items-center w-screen grid lg:grid-cols-4 sm:grid-rows-1 gap-6 mt-10 mb-10'>
                         {onSearch(search).map((item, index) => (
-                            <CardMachines key={index} image={item.image} name={item.name} sensors={item.sensors} status={item.status} model={item.model} />
+                            <CardMachines key={index} id={item.id} image={item.image} name={item.name} sensors={item.sensors} status={item.status} model={item.model} />
                         ))}
                     </div>
                 </main>

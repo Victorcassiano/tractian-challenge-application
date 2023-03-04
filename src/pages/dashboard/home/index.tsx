@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { MapPin, Mail, Phone } from 'lucide-react'
+import { MapPin, Mail, Phone, Building2 } from 'lucide-react'
 import { GetServerSideProps, NextPage } from "next";
 import SideBarNavigation from "@/components/SideBarNavigation";
 import { Card } from "flowbite-react";
@@ -13,16 +13,24 @@ interface CompaniesProps {
     name: string;
 }
 
+interface UnitsProps {
+    id: number;
+    name: string;
+}
+
 type HomePageProps = {
-    assets: AssetsProps[];
-    companies: CompaniesProps[]
+    data: {
+        assets: AssetsProps[];
+        companies: CompaniesProps[]
+        units: UnitsProps[];
+    }
     amountTeam: number;
     openedWorkorders: number;
     closedWorkorders: number;
     stoppedMachines: number;
 }
 
-const Home: NextPage<HomePageProps> = ({ assets, companies, amountTeam, openedWorkorders, closedWorkorders, stoppedMachines }) => {
+const Home: NextPage<HomePageProps> = ({ data, amountTeam, openedWorkorders, closedWorkorders, stoppedMachines }) => {
     return (
         <>
             <Head>
@@ -38,15 +46,26 @@ const Home: NextPage<HomePageProps> = ({ assets, companies, amountTeam, openedWo
                 <main>
                     <div className="px-4 max-w-7xl mx-auto item-center justify-items-center grid lg:grid-cols-2 sm:grid-rows-1 gap-4 mt-10 mb-10">
                         <Card className="container mx-auto">
-                            <ChartColumnTemperatureMachines data={assets} />
+                            <ChartColumnTemperatureMachines data={data.assets} />
                         </Card>
                         <Card className="container mx-auto">
                             <ChartPieOrdens closedWorkorders={closedWorkorders} openedWorkorders={openedWorkorders} />
                         </Card>
+                        <Card className="container mx-auto">
+                            <div className="container flex flex-col rounded-md h-full w-full flex flex-col space-y-5">
+                                <p className="text-gray-700 text-2xl font-bold">Unidades</p>
+                                {data.units.map((item, index) => (
+                                    <div className="flex flex-row" key={index}>
+                                        <Building2 className="mr-3" color="#7a7a7a" />
+                                        <span className=" text-gray-700 text-lg font-medium">{item.name}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </Card>
                         <div className="container mx-auto flex flex-col justify-between space-y-4">
                             <Card className="h-full container mx-auto">
                                 <div className="container flex flex-col rounded-md h-full w-full flex flex-col space-y-5">
-                                    <p className="text-gray-700 text-2xl font-bold">Empresa: {companies[0].name}</p>
+                                    <p className="text-gray-700 text-2xl font-bold">Empresa: {data.companies[0].name}</p>
                                     <div className="flex flex-row">
                                         <MapPin className="mr-3" color="#7a7a7a" />
                                         <span className=" text-gray-700 text-lg font-medium">São Paulo, SP, Brasil</span>
@@ -67,7 +86,7 @@ const Home: NextPage<HomePageProps> = ({ assets, companies, amountTeam, openedWo
                                     <section className="flex flex-row items-center space-x-2 whitespace-nowrap">
                                         <span className="text-gray-700 text-lg font-medium">Quantidades de máquinas: </span>
                                         <span className="text-gray-700 text-lg font-medium">
-                                            {assets.length}
+                                            {data.assets.length}
                                         </span>
                                     </section>
                                     <section className="flex flex-row items-center space-x-2 whitespace-nowrap">
@@ -96,29 +115,26 @@ const Home: NextPage<HomePageProps> = ({ assets, companies, amountTeam, openedWo
             </div>
         </>
     )
+
 }
 
 export default Home
 
 export const getServerSideProps: GetServerSideProps = async () => {
-    const { data: assets } = await api.get('/assets')
-    const { data: team } = await api.get('/users')
-    const { data: workorders } = await api.get('/workorders')
-    const { data: companies } = await api.get('/companies')
+    const { data } = await api.get('/db')
 
+    const openedWorkorders = data.workorders.filter((item: any) => item.status === 'in progress')
+    const closedWorkorders = data.workorders.filter((item: any) => item.status === 'completed')
+    const stoppedMachines = data.assets.filter((item: any) => item.status === 'inDowntime')
 
-    const openedWorkorders = workorders.filter((item: any) => item.status === 'in progress')
-    const closedWorkorders = workorders.filter((item: any) => item.status === 'completed')
-    const stoppedMachines = assets.filter((item: any) => item.status === 'inDowntime')
 
     return {
         props: {
-            assets: assets,
-            companies: companies,
-            amountTeam: team.length,
+            data: data,
             openedWorkorders: openedWorkorders.length,
             closedWorkorders: closedWorkorders.length,
-            stoppedMachines: stoppedMachines.length
+            stoppedMachines: stoppedMachines.length,
+            amoutTeam: data.users.length
         },
     }
 }
