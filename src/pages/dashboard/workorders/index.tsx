@@ -1,9 +1,9 @@
 import { GetServerSideProps, NextPage } from "next";
 import api from "@/services/api";
-import CardWorkorders from "@/pages/dashboard/workorders/components/CardWorkorders";
-import WorkordersProps from "./models/WorkordersProps";
+import CardWorkorders from "@/components/ComponentsWorkorders/CardWorkorders";
+import WorkordersProps from "../../../models/ModelsWorkorders/WorkordersProps";
 import { useState } from "react";
-import TeamProps from "../team/models/TeamProps";
+import TeamProps from "../../../models/ModelsTeam/TeamProps";
 import SideBarNavigation from "@/components/SideBarNavigation";
 import Head from "next/head";
 

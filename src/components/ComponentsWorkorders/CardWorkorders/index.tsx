@@ -1,4 +1,4 @@
-import WorkordersProps from "@/pages/dashboard/workorders/models/WorkordersProps";
+import WorkordersProps from "@/models/ModelsWorkorders/WorkordersProps";
 import translatedStatusPriority from "@/utils/translatedStatusPriority";
 import translatedStatusWorkorders from "@/utils/translatedStatusWorkorders";
 import { Badge } from "flowbite-react";

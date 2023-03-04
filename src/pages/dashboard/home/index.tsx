@@ -4,9 +4,9 @@ import { GetServerSideProps, NextPage } from "next";
 import SideBarNavigation from "@/components/SideBarNavigation";
 import { Card } from "flowbite-react";
 import api from "@/services/api";
-import AssetsProps from "../machines/models/AssetsProps";
-import ChartColumnTemperatureMachines from "./components/ChartColumnTemperatureMachines";
-import ChartPieOrdens from "./components/ChartPieOrdens";
+import AssetsProps from "../../../models/ModelsMachines/AssetsProps";
+import ChartColumnTemperatureMachines from "../../../components/ComponentsHome/ChartColumnTemperatureMachines";
+import ChartPieOrdens from "@/components/ComponentsHome/ChartPieOrdens";
 
 interface CompaniesProps {
     id: number;

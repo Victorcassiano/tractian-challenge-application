@@ -107,5 +107,4 @@ const Index: NextPage = () => {
   )
 }
 
-
 export default Index

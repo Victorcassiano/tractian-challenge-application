@@ -1,7 +1,7 @@
 import React from 'react';
 import HighchartsReact from 'highcharts-react-official';
 import Highcharts from "highcharts/highstock";
-import AssetsProps from '@/pages/dashboard/machines/models/AssetsProps';
+import AssetsProps from '@/models/ModelsMachines/AssetsProps';
 
 type ChartDataProps = {
     data: AssetsProps[]

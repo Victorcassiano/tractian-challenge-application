@@ -3,12 +3,12 @@ import api from "@/services/api";
 import SideBarNavigation from "@/components/SideBarNavigation";
 import Head from "next/head";
 import { Badge } from "flowbite-react";
-import MachineHistoryProps from "./models/MachineHistoryProps";
+import MachineHistoryProps from "../../../models/ModelsDatailsMachine/MachineHistoryProps";
 import translatedStatusMachine from "@/utils/translatedStatusMachine";
 import minutesToHours from "@/utils/minutesToHours";
 import formatDate from "@/utils/formatDate";
-import ChartLineHistoryTemperature from "./components/ChartLineHistoryTemperature";
-import ChartLineHistoryHealth from "./components/ChartLineHistoryHealth";
+import ChartLineHistoryHealth from "../../../components/ComponentsDetailsMachine/ChartLineHistoryHealth";
+import ChartLineHistoryTemperature from "@/components/ComponentsDetailsMachine/ChartLineHistoryTemperature";
 
 type DetailsMachinePageProps = {
     asset: MachineHistoryProps;

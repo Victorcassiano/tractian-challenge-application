@@ -3,8 +3,8 @@ import { GetServerSideProps, NextPage } from 'next'
 import api from '@/services/api'
 
 import Head from 'next/head'
-import CardMachines from '@/pages/dashboard/machines/components/CardMachines'
-import AssetsProps from './models/AssetsProps'
+import CardMachines from '@/components/ComponentsMachines/CardMachines'
+import AssetsProps from '../../../models/ModelsMachines/AssetsProps'
 import SideBarNavigation from '@/components/SideBarNavigation'
 import { useState } from 'react'
 

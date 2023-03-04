@@ -1,6 +1,5 @@
 import translatedStatusMachine from "@/utils/translatedStatusMachine";
 import { Badge } from "flowbite-react";
-import { ChevronRight } from "lucide-react";
 
 
 import Link from "next/link";
