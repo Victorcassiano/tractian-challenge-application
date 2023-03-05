@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { Menu, X } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
+import Link from 'next/link'
 
 function classNames(...classes: any) {
     return classes.filter(Boolean).join(' ')
@@ -36,14 +37,14 @@ const SideBarNavigation: React.FC = () => {
                     <div className="hidden w-full md:block md:w-auto" id="navbar-default">
                         <ul className="flex flex-col p-4 mt-4 border border-gray-100 rounded-lg md:flex-row md:space-x-8 md:mt-0 md:text-sm md:font-medium md:border-0 dark:border-gray-700">
                             {navigationBar.map((item, index) => (
-                                <>
-                                    <li key={index}>
-                                        <a href={item.href} aria-current={item.href === path ? 'page' : undefined} className={classNames(
+                                <div key={index}>
+                                    <li>
+                                        <Link href={item.href} aria-current={item.href === path ? 'page' : undefined} className={classNames(
                                             item.href === path ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                             'px-3 py-2 rounded-md text-sm font-medium cursor-pointer'
-                                        )}>{item.name}</a>
+                                        )}>{item.name}</Link>
                                     </li>
-                                </>
+                                </ div>
                             ))}
                         </ul>
                     </div>
@@ -59,7 +60,7 @@ const SideBarNavigation: React.FC = () => {
                                 item.href === path ? 'bg-gray-900' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
                                 'w-full rounded-md p-2'
                             )}>
-                                <a href={item.href} aria-current={item.href === path ? 'page' : undefined} className="text-white">{item.name}</a>
+                                <Link href={item.href} Linkria-current={item.href === path ? 'page' : undefined} className="text-white">{item.name}</Link>
                             </li>
                         </>
                     ))}

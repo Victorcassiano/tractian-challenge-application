@@ -23,9 +23,8 @@ export default function App({ Component, pageProps }: AppProps) {
     });
   }, [router.events]);
 
-  if (isLoading) {
-    return <LazyLoading />
-  }
 
-  return <Component {...pageProps} />
+  return (
+    isLoading ? <LazyLoading /> : <Component {...pageProps} />
+  )
 }

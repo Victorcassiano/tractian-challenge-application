@@ -1,4 +1,3 @@
-'use client'
 import { GetServerSideProps, NextPage } from 'next'
 import CardTeam from '@/components/ComponentsTeam/CardTeam'
 import api from '@/services/api'

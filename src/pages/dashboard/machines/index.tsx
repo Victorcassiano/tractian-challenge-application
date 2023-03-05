@@ -1,4 +1,3 @@
-'use client'
 import { GetServerSideProps, NextPage } from 'next'
 import api from '@/services/api'
 

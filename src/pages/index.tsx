@@ -1,4 +1,3 @@
-'use client'
 import { NextPage } from 'next'
 import { Lock } from 'lucide-react'
 import { useRouter } from 'next/navigation'
