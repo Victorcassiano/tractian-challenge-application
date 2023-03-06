@@ -3,7 +3,6 @@
 	<img width="100%" src="https://i.imgur.com/6YnAK0H.png">
 </p>
 
-
 ##  Descrição do projeto
 A Tractian propôs um teste prático para avaliar os conhecimentos técnicos de candidatos no processo de seleção para desenvolvimento frontend. O objetivo desse teste é validar a habilidade dos candidatos em lógica de programação e em entender as demandas propostas pela empresa.
 
@@ -15,16 +14,9 @@ O projeto consistia em consumir dados de uma API falsa e, a partir desses dados,
 - [Highcharts](https://www.highcharts.com/) 
 - [Flowbite](https://flowbite-react.com/) 
 - [NextJS](https://nextjs.org/)
+- [Vercel](https://vercel.com/)
 - [Tailwind](https://tailwindcss.com/) 
-
-## Como rodar o projeto
-
-**Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo**
-
-1. `$ git clone https://github.com/Victorcassiano/tractian-challenge` para clonar o projeto
-2. `$ pnpm i` para instalar as dependências do projeto
-3. `$ pnpm dev`
-4. Acessar [http://localhost:3000](http://localhost:3000) no navegador
+- [Lucide](https://lucide.dev/)
 	
 ## Requisitos passados pela Tractian
 
@@ -36,3 +28,16 @@ O projeto consistia em consumir dados de uma API falsa e, a partir desses dados,
 - Utilizar o React
 - Utilizar o Highcharts
 - AntDesign (opcional)
+
+## Veja mais em : 
+<a href="https://tractian-challenge-application.vercel.app/">https://tractian-challenge-application.vercel.app/</a>
+
+## Como rodar o projeto
+**Você pode clonar o projeto e rodá-lo localmente seguindo os passos abaixo**
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
